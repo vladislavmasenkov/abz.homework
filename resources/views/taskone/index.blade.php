@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
     <div class="row justify-content-center">
-        <div class="col-6 center-block">
+        <div class="col-10">
             <div class="form-group form-inline">
                 <input class="form-control col-9 input-file" type="file">
                 <button id="upload-file" class="btn btn-info col-3">Upload File</button>
@@ -12,12 +12,11 @@
             </div>
             <div id="file-data-block"></div>
             <div class="form-group">
-                <button id="get-updated-file" hidden class="form-control btn btn-info">Get Updated File</button>
+                <button id="get-updated-file" hidden class="form-control btn btn-info">Download Updated File</button>
             </div>
             <div hidden id="error-block" class="alert-warning form-control"></div>
         </div>
     </div>
-
     <script>
         $('#upload-file').on('click', function (event) {
             var url = '<?=route('uploadfile')?>';
@@ -41,11 +40,11 @@
                     $('#get-updated-file').data('file-id', result.file_id);
                     $('#get-updated-file').attr('hidden', false);
                     $('#upload-file').attr('disabled', true);
-                    $('#error-block').attr('hidden',true);
+                    $('#error-block').attr('hidden', true);
                 }
-            }).fail(function(result) {
-                if(JSON.parse(result.responseText).message){
-                    $('#error-block').attr('hidden',false);
+            }).fail(function (result) {
+                if (JSON.parse(result.responseText).message) {
+                    $('#error-block').attr('hidden', false);
                     $('#error-block').html(JSON.parse(result.responseText).message);
                 }
             });
