@@ -111,18 +111,13 @@ class Images extends Controller
                 return response()->json(['message' => $e->getMessage()], 400);
             }
             $dataImages = [];
-
-            $imagestart = microtime(true);
+            
             $dataImages[] = $imageHandler->resize(500, 500)
                 ->setTextWatermark(date('d.m.Y H:i:s'), 10, 30)
                 ->save(IMAGETYPE_JPEG);
             $dataImages[] = $imageHandler->save(IMAGETYPE_GIF);
             $dataImages[] = $imageHandler->save(IMAGETYPE_PNG);
-            $imageend = microtime(true)-$imagestart;
-
-            $imagebmpstart = microtime(true);
             $dataImages[] = $imageHandler->save(IMAGETYPE_BMP);
-            $imagebmpend = microtime(true)-$imagebmpstart;
 
             if ($dataImages) {
                 return response()->json([
