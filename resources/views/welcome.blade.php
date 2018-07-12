@@ -21,9 +21,12 @@
     <div class="col-8">
         <nav class="navbar navbar-light">
             <a class="navbar-brand" href="/">ABZ.HOMEWORK</a>
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
+            <ul class="navbar-nav mr-auto d-inline-block">
+                <li class="nav-item d-inline-block">
                     <a class="nav-link" href="{{route('taskone')}}">Task 1</a>
+                </li>
+                <li class="nav-item d-inline-block">
+                    <a class="nav-link" href="{{route('tasktwo')}}">Task 2</a>
                 </li>
             </ul>
         </nav>

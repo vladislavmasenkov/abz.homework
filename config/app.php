@@ -108,6 +108,13 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
+    'image_types' => [
+        IMAGETYPE_PNG,
+        IMAGETYPE_GIF,
+        IMAGETYPE_BMP,
+        IMAGETYPE_JPEG
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
