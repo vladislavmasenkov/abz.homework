@@ -126,7 +126,6 @@ class Images extends Controller
 
             if ($dataImages) {
                 return response()->json([
-                    'time' => [$imageend,$imagebmpend,memory_get_peak_usage(true)],
                     'images' => $dataImages
                 ]);
             }
