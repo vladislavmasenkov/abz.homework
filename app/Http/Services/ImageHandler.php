@@ -77,7 +77,7 @@ class ImageHandler
 
     public function resize($width, $height)
     {
-        $template = imagecreatetruecolor(500, 500);
+        $template = imagecreatetruecolor($width, $height);
         imagecopyresized($template, $this->image, 0, 0, 0, 0, $width, $height, $this->width, $this->height);
 
         $this->image = $template;
