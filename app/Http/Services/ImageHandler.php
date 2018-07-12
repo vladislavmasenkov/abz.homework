@@ -70,11 +70,23 @@ class ImageHandler
         }
     }
 
+    /**
+     * Get image resource
+     *
+     * @return resource
+     */
     public function getImage()
     {
         return $this->image;
     }
 
+    /**
+     * Resize image method.
+     *
+     * @param $width
+     * @param $height
+     * @return $this
+     */
     public function resize($width, $height)
     {
         $template = imagecreatetruecolor($width, $height);
@@ -87,6 +99,14 @@ class ImageHandler
         return $this;
     }
 
+    /**
+     * Method for set text watermark.
+     *
+     * @param $text
+     * @param $x
+     * @param $y
+     * @return $this
+     */
     public function setTextWatermark($text, $x, $y)
     {
         $black = imagecolorallocate($this->image, 0, 0, 0);
@@ -96,6 +116,12 @@ class ImageHandler
         return $this;
     }
 
+    /**
+     * Save image and return in selected format and return name/path/url of image
+     *
+     * @param int $type
+     * @return array|bool
+     */
     public function save($type = 2)
     {
         if (isset(self::AVAILABLE_TYPES[$type])) {
