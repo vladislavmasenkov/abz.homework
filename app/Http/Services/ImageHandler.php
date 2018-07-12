@@ -115,7 +115,7 @@ class ImageHandler
                 break;
             case IMAGETYPE_BMP:
                 $imageName .= '.bmp';
-                imagebmp($this->image, $imagePath . $imageName, true);
+                imagebmp($this->image, $imagePath . $imageName);
                 break;
             case IMAGETYPE_GIF:
                 $imageName .= '.gif';

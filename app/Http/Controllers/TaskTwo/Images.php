@@ -111,7 +111,6 @@ class Images extends Controller
                 return response()->json(['message' => $e->getMessage()], 400);
             }
             $dataImages = [];
-            
             $dataImages[] = $imageHandler->resize(500, 500)
                 ->setTextWatermark(date('d.m.Y H:i:s'), 10, 30)
                 ->save(IMAGETYPE_JPEG);
