@@ -112,7 +112,7 @@ class Images extends Controller
             }
             $dataImages = [];
             $dataImages[] = $imageHandler->resize(500, 500)
-                ->setTextWatermark(date('d.m.Y H:i:s'), 10, 30)
+                ->setTextWatermark(10, 30, date('d.m.Y H:i:s'))
                 ->save(IMAGETYPE_JPEG);
             $dataImages[] = $imageHandler->save(IMAGETYPE_GIF);
             $dataImages[] = $imageHandler->save(IMAGETYPE_PNG);

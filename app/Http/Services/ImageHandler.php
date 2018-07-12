@@ -105,14 +105,15 @@ class ImageHandler
      * @param $text
      * @param $x
      * @param $y
+     * @param $textSize
      * @return $this
      */
-    public function setTextWatermark($text, $x, $y)
+    public function setTextWatermark($x, $y, $text, $textSize = 14)
     {
         $black = imagecolorallocate($this->image, 0, 0, 0);
         $red = imagecolorallocate($this->image, 255, 0, 0);
-        imagettftext($this->image, 15, 0, $x + 1, $y + 1, $black, public_path('fonts/arial.ttf'), $text);
-        imagettftext($this->image, 15, 0, $x, $y, $red, public_path('fonts/arial.ttf'), $text);
+        imagettftext($this->image, $textSize, 0, $x + 1, $y + 1, $black, public_path('fonts/arial.ttf'), $text);
+        imagettftext($this->image, $textSize, 0, $x, $y, $red, public_path('fonts/arial.ttf'), $text);
         return $this;
     }
 
