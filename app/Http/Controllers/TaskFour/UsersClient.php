@@ -26,8 +26,13 @@ class UsersClient extends Controller
 
         $client = new Client(['base_uri' => 'http://abz.homework/api/v1/']);
         try {
-            $result = $client->request('POST', 'users/create/', [
+            $result = $client->request('POST', 'users/create', [
                 'form_params' => $validatedData,
+                'headers' => [
+                    'Accept' => 'application/json',
+                    'Authorization' => 'Basic Rlkts87G85OhVsyRvZhn6glatIMRnBdmKrjxBvkMrqQ0aIDy2RzlaFSgTwDp',
+                    'X-CSRF-TOKEN' => csrf_token()
+                ],
             ]);
             return response()->json(json_decode($result->getBody()), $result->getStatusCode());
         } catch (GuzzleException $e) {
