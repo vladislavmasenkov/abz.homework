@@ -36,3 +36,15 @@ Route::prefix('tasktwo')->group(function () {
             ->where('id', '[0-9]+')->name('resizeimage');
     });
 });
+
+Route::prefix('taskfour')->group(function () {
+    Route::get('/', 'TaskFour\UsersClient@index')->name('taskfour');
+
+    Route::prefix('users')->group(function () {
+        Route::get('/', 'TaskFour\UsersClient@getUsers')->name('userslist');
+
+        Route::post('/create', 'TaskFour\UsersClient@create')->name('usercreate');
+    });
+});
+
+Auth::routes();

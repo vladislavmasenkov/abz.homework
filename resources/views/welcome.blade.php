@@ -28,6 +28,9 @@
                 <li class="nav-item d-inline-block">
                     <a class="nav-link" href="{{route('tasktwo')}}">Task 2</a>
                 </li>
+                <li class="nav-item d-inline-block">
+                    <a class="nav-link" href="{{route('taskfour')}}">Task 4</a>
+                </li>
             </ul>
         </nav>
     </div>
