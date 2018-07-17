@@ -24,12 +24,11 @@ class UsersClient extends Controller
             'avatar' => 'required|image|dimensions:min_width=50,min_height=50,ratio=1/1'
         ]);
 
-        $client = new Client(['base_uri' => 'http://192.168.10.10/api/v1/']);
+        $client = new Client(['base_uri' => 'http://abz.homework/api/v1/']);
         try {
             $result = $client->request('POST', 'users/create/', [
                 'form_params' => $validatedData,
             ]);
-            dd(json_decode($result->getBody()));
             return response()->json(json_decode($result->getBody()), $result->getStatusCode());
         } catch (GuzzleException $e) {
             return response()->json(['success' => 'false', 'message' => $e->getMessage()], 400);
@@ -38,7 +37,7 @@ class UsersClient extends Controller
 
     public function getUsers()
     {
-        $client = new Client(['base_uri' => 'http://192.168.10.10/api/v1/']);
+        $client = new Client(['base_uri' => 'http://abz.homework/api/v1/']);
 
         try {
             $result = $client->request('GET', 'users', [

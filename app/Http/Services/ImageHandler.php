@@ -45,10 +45,7 @@ class ImageHandler
      */
     public function __construct($path)
     {
-        $this->type = exif_imagetype($path);
-        if ($this->type) {
-            list($this->width, $this->height) = getimagesize($path);
-        }
+        list($this->width, $this->height, $this->type) = getimagesize($path);
         switch ($this->type) {
             case IMAGETYPE_JPEG:
                 $this->image = imagecreatefromjpeg($path);
@@ -62,11 +59,8 @@ class ImageHandler
             case IMAGETYPE_GIF:
                 $this->image = imagecreatefrombmp($path);
                 break;
-            case false:
-                throw new \Exception('Unsupported type');
-                break;
             default:
-                $this->image = imagecreate(500, 500);
+                throw new \Exception('Unsupported type');
         }
     }
 

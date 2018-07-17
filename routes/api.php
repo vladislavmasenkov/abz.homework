@@ -14,7 +14,6 @@ use Illuminate\Http\Request;
 */
 
 
-//Route::middleware(['auth:api'])->group(function () {
     Route::prefix('v1')->group(function () {
         Route::prefix('users')->group(function () {
             Route::get('/', 'TaskFour\UsersApi@index');
@@ -23,4 +22,3 @@ use Illuminate\Http\Request;
             Route::post('delete/', 'TaskFour\UsersApi@delete');
         });
     });
-//});
