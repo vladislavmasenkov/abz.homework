@@ -496,9 +496,6 @@ RUN php -v | head -n 1 | grep -q "PHP ${PHP_VERSION}."
 
 RUN curl -sS https://getcomposer.org/installer | \
     php -- --install-dir=/usr/bin/ --filename=composer
-WORKDIR /var/www
-COPY . ./
-RUN composer install --no-dev --no-interaction -o
 
 
 #
@@ -519,9 +516,9 @@ RUN apt-get clean && \
 
 RUN usermod -u 1000 www-data
 
-WORKDIR /var/www
+CMD ["entripoint.sh"]
 
-ENTRYPOINT bash entripoint.sh
+WORKDIR /var/www
 
 CMD ["php-fpm"]
 
