@@ -521,6 +521,8 @@ RUN usermod -u 1000 www-data
 
 WORKDIR /var/www
 
+ENTRYPOINT bash entripoint.sh
+
 CMD ["php-fpm"]
 
 EXPOSE 9000
